@@ -50,13 +50,13 @@ public class TimeUtility {
         return timeUnitValue;
     }
 
-    public static String convertToBerlinTime(String aTime) {
-        Integer[] splitTime = getTimeUnits(aTime);
-
-        return getSecond(splitTime[TWO]) + LINE_SEPARATOR +
-                getHourTopRow(splitTime[ZERO]) + LINE_SEPARATOR +
-                getHourBottomRow(splitTime[ZERO]) + LINE_SEPARATOR +
-                geMinutesTopRow(splitTime[ONE]) + LINE_SEPARATOR +
-                geMinutesBottomRow(splitTime[ONE]);
+    public static String convertToBerlinTime(String time) {
+        Integer[] splitTime = getTimeUnits(time);
+        StringBuilder berlinTime = new StringBuilder();
+        return berlinTime.append(getSecond(splitTime[TWO])).append(LINE_SEPARATOR)
+                .append(getHourTopRow(splitTime[ZERO])).append(LINE_SEPARATOR)
+                .append(getHourBottomRow(splitTime[ZERO])).append(LINE_SEPARATOR)
+                .append(geMinutesTopRow(splitTime[ONE])).append(LINE_SEPARATOR)
+                .append(geMinutesBottomRow(splitTime[ONE])).append(LINE_SEPARATOR).toString();
     }
 }
