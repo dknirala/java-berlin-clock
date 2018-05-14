@@ -57,6 +57,6 @@ public class TimeUtility {
                 .append(getHourTopRow(splitTime[ZERO])).append(LINE_SEPARATOR)
                 .append(getHourBottomRow(splitTime[ZERO])).append(LINE_SEPARATOR)
                 .append(geMinutesTopRow(splitTime[ONE])).append(LINE_SEPARATOR)
-                .append(geMinutesBottomRow(splitTime[ONE])).append(LINE_SEPARATOR).toString();
+                .append(geMinutesBottomRow(splitTime[ONE])).toString();
     }
 }
