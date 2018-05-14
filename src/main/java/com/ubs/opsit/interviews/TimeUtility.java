@@ -1,5 +1,7 @@
 package com.ubs.opsit.interviews;
 
+import java.util.Arrays;
+
 import static com.ubs.opsit.interviews.TimeConstants.*;
 
 public class TimeUtility {
@@ -40,18 +42,15 @@ public class TimeUtility {
         return returnable;
     }
 
-    public static Integer[] getTimeUnits(String aTime) {
-        String[] time = aTime.split(SEMI_COLON);
-
-        Integer[] timeUnitValue = new Integer[THREE];
-        timeUnitValue[ZERO] = Integer.parseInt(time[ZERO]);
-        timeUnitValue[ONE] = Integer.parseInt(time[ONE]);
-        timeUnitValue[TWO] = Integer.parseInt(time[TWO]);
-        return timeUnitValue;
-    }
+    public static int[] getTimeUnits(String aTime) {
+        return Arrays.stream(aTime.split(SEMI_COLON))
+                .filter(word -> !word.isEmpty())
+                .mapToInt(Integer::parseInt)
+                .toArray();
+        }
 
     public static String convertToBerlinTime(String time) {
-        Integer[] splitTime = getTimeUnits(time);
+        int[] splitTime = getTimeUnits(time);
         StringBuilder berlinTime = new StringBuilder();
         return berlinTime.append(getSecond(splitTime[TWO])).append(LINE_SEPARATOR)
                 .append(getHourTopRow(splitTime[ZERO])).append(LINE_SEPARATOR)
